@@ -1,0 +1,16 @@
+{
+    "name": "DO NOT OPEN",
+    "short_name": "DO NOT OPEN",
+    "start_url": "./",
+    "display": "fullscreen",
+    "background_color": "#000000",
+    "theme_color": "#000000",
+    "orientation": "any",
+    "icons": [
+        {
+            "src": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==",
+            "sizes": "1x1",
+            "type": "image/png"
+        }
+    ]
+}
