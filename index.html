@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>DO NOT OPEN</title>
+    <!-- FULLSCREEN / PWA -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <link rel="manifest" href="manifest.json">
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body,
+        html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #000;
+            background-image: url('background.png');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: #fff;
+            font-family: 'Courier New', Courier, monospace;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Overlay to darken background */
+        body::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: -1;
+        }
+
+        /* 
+           Style the widget area effectively. 
+           Note: The Custom Element uses Shadow DOM, so mainly we position the container.
+        */
+        elevenlabs-convai {
+            width: 100%;
+            height: 100%;
+            max-width: 600px;
+            max-height: 800px;
+        }
+
+        #status {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            color: #333;
+            font-size: 10px;
+            z-index: 5;
+        }
+
+        .bg-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 20px;
+            color: #111;
+            z-index: -1;
+            pointer-events: none;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="bg-text">SYSTEM ONLINE</div>
+
+    <!-- ELEVENLABS WIDGET -->
+    <elevenlabs-convai agent-id="agent_6401ke2njkc4fgx8n5fprkwbesnk"></elevenlabs-convai>
+    <script src="https://unpkg.com/@elevenlabs/convai-widget-embed" async type="text/javascript"></script>
+
+    <div id="status">● WIDGET MODE</div>
+
+    <script>
+        // Simple fullscreen trigger on background click
+        document.body.addEventListener('click', (e) => {
+            if (e.target === document.body) {
+                document.documentElement.requestFullscreen().catch(() => { });
+            }
+        });
+    </script>
+</body>
+
+</html>
